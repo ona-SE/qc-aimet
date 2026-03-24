@@ -1,3 +1,9 @@
 # pytorch uses setuptools to build C++ extensions
 # [ImportError: cannot import name 'packaging' from 'pkg_resources']
-setuptools<70
+# CVE-2024-6345 (RCE via package_index) fixed in 70.0.0
+# PYSEC-2025-49 / CVE-2025-47273 (path traversal) fixed in 78.1.1
+setuptools>=78.1.1
+
+# CVE-2026-32597: PyJWT accepts unknown crit header extensions (RFC 7515 violation)
+# Transitive dependency — pinned here to enforce minimum safe version
+PyJWT>=2.12.0
