@@ -1,3 +1,5 @@
 # pytorch uses setuptools to build C++ extensions
 # [ImportError: cannot import name 'packaging' from 'pkg_resources']
-setuptools<70
+# CVE-2024-6345, CVE-2025-47273: upgraded from <70 to >=78.1.1
+# NOTE: verify PyTorch C++ extension builds still work with this constraint
+setuptools>=78.1.1
